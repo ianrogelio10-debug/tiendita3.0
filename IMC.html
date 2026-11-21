@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="es" class="h-100">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <title>CALCULADORA IMC</title>
+
+    <style>
+        body {
+            background: linear-gradient(135deg, #141e30, #243b55);
+            font-family: Arial, sans-serif;
+        }
+
+        .contenedor {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 30px;
+        }
+
+        .calculadora {
+            background: #ffffff;
+            color: #333;
+            width: 100%;
+            max-width: 1100px;
+            padding: 35px;
+            border-radius: 25px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+        }
+
+        h1 {
+            color: #6c3bd1;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        .subtitulo {
+            color: #777;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .panel {
+            background: #f5f2fc;
+            padding: 25px;
+            border-radius: 18px;
+            height: 100%;
+        }
+
+        h5 {
+            font-weight: bold;
+            color: #493080;
+        }
+
+        input[type="range"] {
+            accent-color: #7544d6;
+            cursor: pointer;
+        }
+
+        .resultado {
+            background: linear-gradient(135deg, #7544d6, #a16ae8);
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            margin-top: 30px;
+        }
+
+        .resultado h2 {
+            font-weight: bold;
+            margin: 0;
+        }
+
+        #imc {
+            font-size: 35px;
+        }
+
+        .btn-reset {
+            background: #ffb703;
+            border: none;
+            color: #222;
+            font-weight: bold;
+            padding: 12px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+
+        .btn-reset:hover {
+            background: #e9a000;
+        }
+
+        .tabla {
+            border-radius: 15px;
+            overflow: hidden;
+        }
+
+        .tabla th {
+            background: #7544d6;
+            color: white;
+            padding: 15px;
+        }
+
+        .tabla td {
+            padding: 13px;
+            font-weight: bold;
+        }
+
+        .tabla tbody tr:hover {
+            filter: brightness(0.93);
+        }
+
+        @media (max-width: 768px) {
+            .calculadora {
+                padding: 20px;
+            }
+
+            .col-6 {
+                width: 100%;
+                margin-bottom: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body class="m-0">
+
+<div class="contenedor">
+
+    <div class="calculadora">
+
+        <h1 class="text-center">CALCULADORA DE IMC</h1>
+        <p class="subtitulo">Calcula tu índice de masa corporal</p>
+
+        <hr>
+
+        <div class="row g-4">
+
+            <div class="col-6">
+
+                <div class="panel">
+
+                    <h5>PESO (kg): <span id="vp">20</span></h5>
+
+                    <input type="range" class="form-range"
+                    id="peso" min="20" max="200" value="20">
+
+                    <hr>
+
+                    <h5>ESTATURA (cm): <span id="ve">100</span></h5>
+
+                    <input type="range" class="form-range"
+                    id="estatura" min="100" max="220" value="100">
+
+                    <div class="resultado text-center">
+                        <h5 style="color:white;">TU RESULTADO</h5>
+                        <h2>IMC: <span id="imc">0</span></h2>
+                    </div>
+
+                    <button id="reset" class="btn btn-reset w-100">
+                        ↻ REINICIAR
+                    </button>
+
+                </div>
+
+            </div>
+
+            <div class="col-6">
+
+                <div class="panel">
+
+                    <h4 class="text-center mb-4" style="color:#493080;">
+                        TABLA DE REFERENCIA
+                    </h4>
+
+                    <table class="table table-bordered text-center tabla">
+
+                        <thead>
+                            <tr>
+                                <th>Categoría</th>
+                                <th>IMC</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+
+                            <tr>
+                                <td style="background:#00b0f0;">BAJO PESO</td>
+                                <td style="background:#00b0f0;">&lt; 18,5</td>
+                            </tr>
+
+                            <tr>
+                                <td style="background:#92d050;">NORMAL</td>
+                                <td style="background:#92d050;">18,5 a 24,9</td>
+                            </tr>
+
+                            <tr>
+                                <td style="background:#ffc000;">SOBREPESO</td>
+                                <td style="background:#ffc000;">25 a 29,9</td>
+                            </tr>
+
+                            <tr>
+                                <td style="background:#ed7d31;">OBESIDAD I</td>
+                                <td style="background:#ed7d31;">30 a 34,9</td>
+                            </tr>
+
+                            <tr>
+                                <td style="background:#c65911;">OBESIDAD II</td>
+                                <td style="background:#c65911;">35 a 39,9</td>
+                            </tr>
+
+                            <tr>
+                                <td style="background:#c00000; color:white;">OBESIDAD III</td>
+                                <td style="background:#c00000; color:white;">40 o más</td>
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <p class="text-center mt-4 mb-0 text-secondary">
+            PRÁCTICAS DE JAVASCRIPT | 2026
+        </p>
+
+    </div>
+
+</div>
+
+<script src="js/bootstrap.bundle.min.js"></script>
+<script src="js/sweetalert2.all.min.js"></script>
+<script src="js/IMC.js"></script>
+
+</body>
+</html>
